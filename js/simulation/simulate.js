@@ -13,7 +13,7 @@ if (GBrowserIsCompatible())
 	  
       // var eol;
 	  var carindex = 0;
-	  var cars = [];
+	  var cars = 0;
 	  //add new car when dirn is loaded
       //var marker;
       var k=0; //??
@@ -98,7 +98,8 @@ if (GBrowserIsCompatible())
 			car.iconSize=new GSize(32,18);
 			car.iconAnchor=new GPoint(16,9);
 			addCar(dirn, car);
-		
+			cars++;
+			updateGui();
       }
 
     }
@@ -116,4 +117,8 @@ if (GBrowserIsCompatible())
 function setSpeed(speed){
 	console.log(speed);
 	tick = (1/speed)*100;
+}
+function updateGui()
+{
+	document.getElementById("ammountofcars").innerHTML = cars;
 }
