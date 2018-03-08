@@ -36,37 +36,21 @@
       var step = 5; // metres
       var tick = 100; // milliseconds
 	  
-      var poly;
-      var poly2;
-      var lastVertex = 0;
-	  
-      var eol;
+      // var eol;
 	  var carindex = 0;
 	  var cars = [];
 	  //add new car when dirn is loaded
       //var marker;
       var k=0; //??
       var stepnum=0;
-      var speed = "";   
+      var speed = "";
 
-      function updatePoly(d) {
-        // Spawn a new polyline every 20 vertices, because updating a 100-vertex poly is too slow
-        if (poly2.getVertexCount() > 20) {
-          /*poly2=new GPolyline([poly.getVertex(lastVertex-1)]);
-          map.addOverlay(poly2)*/
-        }
-
-        if (poly.GetIndexAtDistance(d) < lastVertex+2) {
-           if (poly2.getVertexCount()>1) {
-             poly2.deleteVertex(poly2.getVertexCount()-1)
-           }
-           /*poly2.insertVertex(poly2.getVertexCount(),poly.GetPointAtDistance(d));*/
-        } else {
-          /*poly2.insertVertex(poly2.getVertexCount(),poly.getVertex(lastVertex++));*/
-        }
-      }
 	//d = distance in km
       function animate(d, dirn, marker) {
+
+        var poly=dirn.getPolyline();
+        var eol=poly.Distance();
+
         if (d>eol) { // einde bereikt
           document.getElementById("step").innerHTML = "<b>Trip completed<\/b>";
           document.getElementById("distance").innerHTML =  "Miles: "+(d/1609.344).toFixed(2);
@@ -93,9 +77,9 @@
             speed = "<br>Current speed: " + stepspeed +" mph";
           }
         } else {
-          if (dirn.getRoute(0).getStep(stepnum).getPolylineIndex() < poly.GetIndexAtDistance(d)) {
-            document.getElementById("step").innerHTML = "<b>Next: Arrive at your destination<\/b>";
-          }
+          // if (dirn.getRoute(0).getStep(stepnum).getPolylineIndex() < poly.GetIndexAtDistance(d)) {
+          //   document.getElementById("step").innerHTML = "<b>Next: Arrive at your destination<\/b>";
+          // }
         }
         //updatePoly(d);
 		setTimeout(function(){ animate(d+step, dirn, marker) }, tick);
@@ -103,9 +87,8 @@
 	  function addCar(dirn, car)
 	  {
 		  GEvent.addListener(dirn,"load", function() {
-				//document.getElementById("controls").style.display="none";
-				poly=dirn.getPolyline();
-				eol=poly.Distance();
+				//document.getElementById("controls").style.display="none"
+                var poly=dirn.getPolyline();
 				map.setCenter(poly.getVertex(0),17);
 				map.addOverlay(new GMarker(poly.getVertex(0),G_START_ICON));
 				map.addOverlay(new GMarker(poly.getVertex(poly.getVertexCount()-1),G_END_ICON));
@@ -118,7 +101,7 @@
 				map.addOverlay(marker);
 				var steptext = dirn.getRoute(0).getStep(stepnum).getDescriptionHtml();
 				document.getElementById("step").innerHTML = steptext;
-				poly2 = new GPolyline([poly.getVertex(0)]);
+                var poly2 = new GPolyline([poly.getVertex(0)]);
 				map.addOverlay(poly2);
 				setTimeout(function(){ animate(0, dirn, marker) },2000);  // Allow time for the initial map display
 			  });
