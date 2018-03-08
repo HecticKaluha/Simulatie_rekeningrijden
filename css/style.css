@@ -1,0 +1,148 @@
+*{
+	font-family: verdana, sans-serif;
+}
+body{
+	margin: 0px;
+	background-color: #fcfcfc;
+	width: 100%;
+	min-width:530px;
+}
+main{
+	display: flex;
+	direction: row;
+	flex-wrap: wrap;
+	width: 100%;
+	justify-content: space-evenly;
+	max-width: 1000px;
+	margin:0 auto;
+}
+.tile{
+	width:300px;
+	height: 300px;
+	display:flex;
+	background-color: grey;
+	margin:10px;
+	position:relative;
+	background-size: cover;
+	background-repeat:no-repeat;
+	border-radius: 3px;
+}
+.tile:hover
+{
+	opacity:0.9;
+	animation: fadeInFromNone 0.3s ease-out;
+	box-shadow: 7px 7px 23px 0px rgba(0,0,0,0.75);
+	transition: box-shadow 0.3s ease-in-out;
+	
+}
+.tile a{
+	width: 100%;
+	height: 100%;
+}
+.tile p{
+	position: absolute;
+	bottom: 0;
+	padding: 2%;
+	margin:0px;
+	width: 96%;
+	font-weight: bolder;
+	color: #fcfcfc;
+	background-color: rgba(0, 0, 0, 0.3);
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+#tile_monitoring{
+	background-image: url("../img/Optimized-monitoring.jpeg");
+}
+
+#tile_simulatie{
+	background-image: url("../img/Optimized-simulation.jpg");
+}
+
+#tile_politie{
+	background-image: url("../img/Optimized-politievolgsysteem.jpeg");
+}
+#tile_landen{
+	background-image: url("../img/Optimized-landmonitoring.jpeg");
+}
+#tile_rekeningapp{
+	background-image: url("../img/rekeningrijdersapp.jpg");
+}
+#tile_rekeningadmin{
+	background-image: url("../img/Optimized-rekeningadministratie.jpeg");
+}
+#tile_verplaatsing{
+	background-image: url("../img/Optimized-Verplaatsingregistratiesysteem.jpeg");
+}
+#tile_europeesdata{
+	background-image: url("../img/Optimized-europesedatauitwissel.jpeg");
+}
+#tile_documenten{
+	background-image: url("../img/Optimized-Documenten.jpeg");
+}
+#tile_sonarqube{
+	background-image: url("../img/sonarqube.png");
+	border: 1px solid grey;
+	background-color: transparent;
+}
+#tile_jenkins{
+	background-image: url("../img/jenkins.png");
+	border: 1px solid grey;
+	background-color: transparent;
+}
+#tile_artifactory{
+	background-image: url("../img/artifactory.png");
+	border: 1px solid grey;
+	background-color: transparent;
+}
+#tile_youtrack{
+	background-image: url("../img/youtrack.png");
+	border: 1px solid grey;
+	background-color: transparent;
+}
+#tile_splunk{
+	background-image: url("../img/splunk.png");
+}
+
+header{
+	width:100%;
+	min-height: 200px;
+	display:flex;
+	flex-direction: row;
+	justify-content: space-between;
+	background-image:URL("../img/header_img.jpg");
+	background-size:cover;
+	margin-bottom: 15px;
+	color: #fcfcfc;
+	text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+}
+header p a{
+	color: #fcfcfc;
+	text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+	text-decoration:none;
+}
+header img{
+	height:150px;
+	width:150px;
+	margin: 5px 0 0 5px;
+}
+header h1{
+	margin-left: 15px;
+	vertical-align: middle;
+	font-size: 65px;
+}
+header p{
+	margin-right: 15px;
+}
+footer{
+	width: 75vw;
+	margin: 0 auto;
+	border-top: 1px solid grey;
+	margin-top: 15px;
+	padding-top: 5px;
+	margin-bottom: 15px;
+}
+footer p{
+	width:65vw;
+	margin: 0 auto;
+}
