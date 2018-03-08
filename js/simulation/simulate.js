@@ -37,7 +37,8 @@ if (GBrowserIsCompatible())
           /*map.panTo(p);*/
           k=0;
         }
-		//console.log(p);
+		//output the lat and long of the simulated vihicle
+		console.log(p.lat(), p.lng());
         marker.setPoint(p);
         /*document.getElementById("distance").innerHTML =  "Km: "+(d/1000).toFixed(2)+speed;*/
         if (stepnum+1 < dirn.getRoute(0).getNumSteps()) {
@@ -67,6 +68,8 @@ if (GBrowserIsCompatible())
 				map.setCenter(poly.getVertex(0),17);
 				map.addOverlay(new GMarker(poly.getVertex(0),G_START_ICON));
 				map.addOverlay(new GMarker(poly.getVertex(poly.getVertexCount()-1),G_END_ICON));
+				cars++;
+				updateGui();
 				
 				//pick the next car icon from the list with car icons.
 				
@@ -98,10 +101,8 @@ if (GBrowserIsCompatible())
 			car.iconSize=new GSize(32,18);
 			car.iconAnchor=new GPoint(16,9);
 			addCar(dirn, car);
-			cars++;
-			updateGui();
+			
       }
-
     }
 	else{
 		var kop = document.createElement("h1");
