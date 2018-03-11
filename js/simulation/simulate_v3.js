@@ -1,7 +1,6 @@
 var directionsDisplay = new google.maps.DirectionsRenderer({ draggable: true });
 var directionsService = new google.maps.DirectionsService();
 var map;
-var polys = [];
 var cars = 0;
 
 
@@ -30,12 +29,10 @@ function calcRoute(startpoint, endpoint) {
         if (status == google.maps.DirectionsStatus.OK) {
             directionsDisplay.setDirections(response);
             //document.getElementById('Gresponse').innerHTML = JSON.stringify(response);
-			console.log(polys);
 			var line = createPolyline(response);
-			console.log(polys[0].get('icons'));
 			animate(line);
 			cars++;
-			updateGui();
+			updateGui(response, line);
         }
     });
 };
@@ -56,13 +53,11 @@ function createPolyline(directionResult) {
         }]
   });
   line.setMap(map);
-  polys.push(line);
   return line;
 };
 
 function animate(line) {
-
-	console.log("aangekomen");
+	
 	var count = 0;
 	window.setInterval(function() {
 		count = (count + 1) % 200;
@@ -72,11 +67,12 @@ function animate(line) {
 	}, 50);
 };
 
-function updateGui()
+function updateGui(response, line)
 {
 	document.getElementById("ammountofcars").innerHTML = cars;
 	var carToAdd = document.createElement("p");
-	
-	//carToAdd.innerHTML = "A car is driving from " + directionsResult.request.origin.query + " to " + directionsResult.request.destination.query;
+	console.log(line);
+	carToAdd.innerHTML = "A car is driving from " + response.request.origin.query + " to " + response.request.destination.query;
+	document.getElementById("directions").appendChild(carToAdd);
 	//document.getElementById("simulation_waypointslist").appendChild(carToAdd);
 }
