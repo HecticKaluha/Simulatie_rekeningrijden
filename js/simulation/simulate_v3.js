@@ -60,7 +60,7 @@ function animate(line) {
 	
 	var count = 0;
 	window.setInterval(function() {
-		count = (count + 1) % 200;
+		count ++;
 		var icons = line.get('icons');
 		icons[0].offset = (count / 2) + '%';
 		line.set('icons', icons);
@@ -72,6 +72,17 @@ function updateGui(response, line)
 	document.getElementById("ammountofcars").innerHTML = cars;
 	var carToAdd = document.createElement("p");
 	console.log(line);
+
+	var pathlenght = response.routes[0].overview_path.length;
+	var pathDurationSec = response.routes[0].legs[0].duration.value;
+	var pathStepDuration = pathDurationSec/pathlenght;
+
+
+	console.log(pathlenght);
+	console.log(pathDurationSec);
+	console.log(pathStepDuration);
+	console.log(response.routes[0].overview_path.forEach(function (value, index) { console.log(value.lat());
+                                                                                    console.log(value.lng());}));
 	carToAdd.innerHTML = "A car is driving from " + response.request.origin.query + " to " + response.request.destination.query;
 	document.getElementById("directions").appendChild(carToAdd);
 	//document.getElementById("simulation_waypointslist").appendChild(carToAdd);
