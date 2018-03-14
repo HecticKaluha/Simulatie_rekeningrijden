@@ -111,6 +111,9 @@ function moveToStep(stepCoordinates, index, line, route)
 {
 	console.log("step " + index);
 	var icons = line.get('icons');
+	
+	//Ajax call to java layer with line.carId and stepcoordinates
+	
 	icons[0].offset = (index/route.routes[0].overview_path.length) * 100 + '%';
 	console.log("offset = " +((index/route.routes[0].overview_path.length) * 100 + '%'));
 	line.set('icons', icons);
