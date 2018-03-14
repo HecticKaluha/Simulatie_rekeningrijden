@@ -15,8 +15,10 @@
   </head>
   <body onunload="GUnload()">
 	  <header>
-		<img src="../../img/logo.png" alt="The Tax&amp;Tracks Logo">
+		<a href="../../index.html"> <img src="../../img/logo.png" alt="The Tax&amp;Tracks Logo"> </a>
+		
 		<h1>Tax &amp; Tracks</h1>
+		<h1>Hallo!!!</h1>
 		<p><a href="#">Logout</a></p>
 	  </header>
 	  <div class="flexbox wrap row center middle" id="simulation_content">
@@ -31,7 +33,7 @@
 			</form>
 			<div id="map"></div>
 		  </main>
-		  <aside id="simulation_aside" class="self_center flexbox column">
+		  <aside id="simulation_aside" class="flexbox column">
 			<p>Set the speed of the simulation:</p>
 			<input id="speedNud" type="number" onClick="setSpeed(document.getElementById('speedNud').value)" placeholder="1" min="1" max="5">
 			<p>Ammount of cars being simulated: <span id="ammountofcars">0</span></p>

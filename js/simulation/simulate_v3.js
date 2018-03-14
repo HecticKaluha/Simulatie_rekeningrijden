@@ -5,6 +5,7 @@ var cars = 0;
 
 
 window.onload = init;
+
 function init() {
     var myOptions = {
         zoom: 7,
@@ -67,6 +68,16 @@ function animate(line) {
 	}, 50);
 };
 
+
+
+function newAnimate()
+{
+	var stepCount = 0;
+	/*window.setInterval(){
+		
+	}*/
+	
+}
 function updateGui(response, line)
 {
 	document.getElementById("ammountofcars").innerHTML = cars;

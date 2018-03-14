@@ -16,6 +16,9 @@ main{
 .middle{
 	margin:0 auto;
 }
+.items-center{
+	align-items: center;
+}
 .flexbox{
 	display: flex;
 }
@@ -220,7 +223,8 @@ footer p{
 	width: 100%;
 	height:600px;
 	border:2px solid grey;
-	margin:15px;
+	margin: 65px 15px 15px 15px;
+	
 	padding: 15px;
 	overflow-y: scroll;
 }
@@ -249,3 +253,84 @@ footer p{
 #directions {
     width: 100%;
 }
+
+/*--------Monitoring------*/
+
+.country{
+	max-width: 300px;
+	min-width:250px;
+	width:17%;
+	border: 2px solid grey;
+	border-radius: 3px;
+	margin: 15px;
+}
+
+.country_system{
+	height: 60px;
+	border:1px solid grey;
+	margin: 5px;
+	border-radius: 5px;
+	white-space: pre-wrap;      /* CSS3 */   
+	white-space: -moz-pre-wrap; /* Firefox */    
+	white-space: -pre-wrap;     /* Opera <7 */   
+	white-space: -o-pre-wrap;   /* Opera 7 */    
+	word-wrap: break-word; 
+	display: flex;
+	background-color: #f9f9f9;
+}
+
+.country_system p{
+	margin: 5px;
+	display:inline-block;
+	width: 75%;
+}
+#monitoring_main{
+	max-width:1600px !important;
+}
+.country_name{
+	margin: 5px 5px 5px 5px;
+	font-size: 25px;
+	color:#eaeaea;
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+.active{
+	/*background-color: #7cff94;*/
+	background-image: URL("../img/monitoring/active.png");
+}
+
+.status_img{
+	width:30px; 
+	height: 30px;
+	background-size:cover;
+	display:inline-block;
+	margin: 5px;
+}
+.non_active{
+	/*background-color: #ff2b2b;*/
+	background-image: URL("../img/monitoring/non_active.png");
+}
+
+.idle{
+	/*background-color: #f9ff5b;*/
+	background-image: URL("../img/monitoring/idle.png");
+}
+
+@media only screen and (max-width: 697px) {
+    .country {
+        width: 100%;
+		max-width: 100%;
+    }
+}
+@media only screen and (min-width: 697px) and (max-width: 867px) {
+    .country {
+        width: 45%;
+		max-width: 100%;
+    }
+}
+@media only screen and (min-width: 867px) and (max-width: 1150px) {
+    .country {
+        width: 25%;
+		max-width: 100%;
+    }
+}
+
