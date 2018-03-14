@@ -1,0 +1,336 @@
+*{
+	font-family: verdana, sans-serif;
+}
+body{
+	margin: 0px;
+	background-color: #fcfcfc;
+	width: 100%;
+	min-width:530px;
+}
+main{
+	width: 100%;
+	justify-content: space-evenly;
+	max-width: 1000px;
+	margin:0 auto;
+}
+.middle{
+	margin:0 auto;
+}
+.items-center{
+	align-items: center;
+}
+.flexbox{
+	display: flex;
+}
+.row{
+	flex-direction:row;
+}
+.column{
+	flex-direction:column;
+}
+.wrap{
+	flex-wrap:wrap;
+}
+.evenly{
+	justify-content: space-evenly;
+}
+.center{
+	justify-content: center;
+}
+.start{
+	justify-content: flex-start;
+}
+.self_center
+{
+	align-self: center; 
+}
+.self_baseline
+{
+	align-self: flex-end; 
+}
+.tile{
+	width:300px;
+	height: 300px;
+	display:flex;
+	background-color: grey;
+	margin:10px;
+	position:relative;
+	background-size: cover;
+	background-repeat:no-repeat;
+	border-radius: 3px;
+}
+.tile:hover
+{
+	opacity:0.9;
+	animation: fadeInFromNone 0.3s ease-out;
+	box-shadow: 7px 7px 23px 0px rgba(0,0,0,0.75);
+	transition: box-shadow 0.3s ease-in-out;
+	
+}
+.tile a{
+	width: 100%;
+	height: 100%;
+}
+.tile p{
+	position: absolute;
+	bottom: 0;
+	padding: 2%;
+	margin:0px;
+	width: 96%;
+	font-weight: bolder;
+	color: #fcfcfc;
+	background-color: rgba(0, 0, 0, 0.3);
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+#tile_monitoring{
+	background-image: url("../img/Optimized-monitoring.jpeg");
+}
+
+#tile_simulatie{
+	background-image: url("../img/Optimized-simulation.jpg");
+}
+
+#tile_politie{
+	background-image: url("../img/Optimized-politievolgsysteem.jpeg");
+}
+#tile_landen{
+	background-image: url("../img/Optimized-landmonitoring.jpeg");
+}
+#tile_rekeningapp{
+	background-image: url("../img/rekeningrijdersapp.jpg");
+}
+#tile_rekeningadmin{
+	background-image: url("../img/Optimized-rekeningadministratie.jpeg");
+}
+#tile_verplaatsing{
+	background-image: url("../img/Optimized-Verplaatsingregistratiesysteem.jpeg");
+}
+#tile_europeesdata{
+	background-image: url("../img/Optimized-europesedatauitwissel.jpeg");
+}
+#tile_documenten{
+	background-image: url("../img/Optimized-Documenten.jpeg");
+}
+#tile_sonarqube{
+	background-image: url("../img/sonarqube.png");
+	border: 1px solid grey;
+	background-color: transparent;
+}
+#tile_jenkins{
+	background-image: url("../img/jenkins.png");
+	border: 1px solid grey;
+	background-color: transparent;
+}
+#tile_artifactory{
+	background-image: url("../img/artifactory.png");
+	border: 1px solid grey;
+	background-color: transparent;
+}
+#tile_youtrack{
+	background-image: url("../img/youtrack.png");
+	border: 1px solid grey;
+	background-color: transparent;
+}
+#tile_splunk{
+	background-image: url("../img/splunk.png");
+}
+
+header{
+	width:100%;
+	min-height: 200px;
+	display:flex;
+	flex-direction: row;
+	justify-content: space-between;
+	background-image:URL("../img/header_img.jpg");
+	background-size:cover;
+	margin-bottom: 15px;
+	color: #fcfcfc;
+	text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+}
+header p a{
+	color: #fcfcfc;
+	text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+	text-decoration:none;
+}
+header img{
+	height:150px;
+	width:150px;
+	margin: 5px 0 0 5px;
+}
+header h1{
+	margin-left: 15px;
+	vertical-align: middle;
+	font-size: 65px;
+}
+header p{
+	margin-right: 15px;
+}
+footer{
+	width: 75vw;
+	margin: 0 auto;
+	border-top: 1px solid grey;
+	margin-top: 15px;
+	padding-top: 5px;
+	margin-bottom: 15px;
+}
+footer p{
+	width:65vw;
+	margin: 0 auto;
+}
+
+
+/*-----Simulation----*/
+.simulation_input
+{
+	margin: 5px;
+}
+#simulation_submit
+{
+	height: 55px;
+	margin:0 0 5px 5px;
+	box-shadow: rgb(245, 151, 142) 0px 1px 0px 0px inset;
+    background: linear-gradient(rgb(125, 93, 59) 5%, rgb(99, 75, 48) 100%) rgb(125, 93, 59);
+    border-radius: 6px;
+    border: 1px solid rgb(84, 56, 30);
+    display: inline-block;
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    font-family: verdana;
+    font-size: 15px;
+    font-weight: bold;
+    text-decoration: none;
+    text-shadow: rgb(129, 14, 5) 0px 1px 0px;
+}
+#simulation_inputs{
+	width:90%;
+}
+#simulation_main{
+	;
+}
+
+#map{
+	position:relative;
+	width: 100%;
+}
+#map:before{
+	content: "";
+	display: block;
+	padding-top: 100%;
+}
+#simulation_aside{
+	max-width:300px;
+	width: 100%;
+	height:600px;
+	border:2px solid grey;
+	margin: 65px 15px 15px 15px;
+	
+	padding: 15px;
+	overflow-y: scroll;
+}
+#simulation_content{
+	max-width: 1400px !important;
+	width: 98%;
+}
+#speedNud
+{
+	width: 20%;
+}
+#ammountofcars
+{
+	font-weight:bold;
+}
+#simulation_waypointslist
+{
+	min-height:200px;
+	border: 1px solid grey;
+	padding: 0 5px 0 5px;
+}
+#simulation_waypointslist p{
+	margin: 5px 0 5px 0;
+}
+
+#directions {
+    width: 100%;
+}
+
+/*--------Monitoring------*/
+
+.country{
+	max-width: 300px;
+	min-width:250px;
+	width:17%;
+	border: 2px solid grey;
+	border-radius: 3px;
+	margin: 15px;
+}
+
+.country_system{
+	height: 60px;
+	border:1px solid grey;
+	margin: 5px;
+	border-radius: 5px;
+	white-space: pre-wrap;      /* CSS3 */   
+	white-space: -moz-pre-wrap; /* Firefox */    
+	white-space: -pre-wrap;     /* Opera <7 */   
+	white-space: -o-pre-wrap;   /* Opera 7 */    
+	word-wrap: break-word; 
+	display: flex;
+	background-color: #f9f9f9;
+}
+
+.country_system p{
+	margin: 5px;
+	display:inline-block;
+	width: 75%;
+}
+#monitoring_main{
+	max-width:1600px !important;
+}
+.country_name{
+	margin: 5px 5px 5px 5px;
+	font-size: 25px;
+	color:#eaeaea;
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+.active{
+	/*background-color: #7cff94;*/
+	background-image: URL("../img/monitoring/active.png");
+}
+
+.status_img{
+	width:30px; 
+	height: 30px;
+	background-size:cover;
+	display:inline-block;
+	margin: 5px;
+}
+.non_active{
+	/*background-color: #ff2b2b;*/
+	background-image: URL("../img/monitoring/non_active.png");
+}
+
+.idle{
+	/*background-color: #f9ff5b;*/
+	background-image: URL("../img/monitoring/idle.png");
+}
+
+@media only screen and (max-width: 697px) {
+    .country {
+        width: 100%;
+		max-width: 100%;
+    }
+}
+@media only screen and (min-width: 697px) and (max-width: 867px) {
+    .country {
+        width: 45%;
+		max-width: 100%;
+    }
+}
+@media only screen and (min-width: 867px) and (max-width: 1150px) {
+    .country {
+        width: 25%;
+		max-width: 100%;
+    }
+}
+
