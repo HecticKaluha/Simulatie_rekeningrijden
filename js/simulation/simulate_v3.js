@@ -106,6 +106,8 @@ function calcRoute(startpoint, endpoint) {
 };
 
 function createPolyline(directionResult) {
+  
+  var carId = Math.floor((Math.random() * 100000)+1);
   var line = new google.maps.Polyline({
 		path: directionResult.routes[0].overview_path,
 		strokeColor: 'rgba(53, 130, 255, 1)',
@@ -116,14 +118,15 @@ function createPolyline(directionResult) {
 			path: google.maps.SymbolPath.CIRCLE,
 			scale: 5,
 			strokeOpacity: 1,
-			strokeColor: '#393'
+			strokeColor: '#393',
+			label: {color:"black", fonWeight:"bold", fontSize: "14px", text: carId}
 		  },
 		  //100 / (totaal aantal punten / punt waar je bent )
 		  offset: '0%'
 			}],
-		carId: Math.floor((Math.random() * 100000)+1),
+		carId: carId,
 		stepId: 0,
-		date: d.getDate() 
+		date: new Date() 
   });
   line.setVisible(true);
   line.setMap(map);

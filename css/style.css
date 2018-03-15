@@ -82,6 +82,26 @@ main{
 	background-color: rgba(0, 0, 0, 0.3);
 	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
+.coming_soon{
+	display: none;
+	
+}
+
+.tile_coming_soon a:hover{
+	opacity: 0.5;
+	background-color: #2f2f2f;
+
+}
+.tile_coming_soon a:hover .coming_soon{
+	position:relative;
+	/*margin-top: 125px;*/
+	vertical-align:middle;
+	line-height: 290px;
+	text-align: center;
+	background-color: rgba(0,0,0,0);
+	font-size: 30px;
+	display:block;
+}
 
 #tile_monitoring{
 	background-image: url("../img/Optimized-monitoring.jpeg");
