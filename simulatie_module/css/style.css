@@ -202,6 +202,25 @@ footer p{
     text-decoration: none;
     text-shadow: rgb(129, 14, 5) 0px 1px 0px;
 }
+
+#simulation_submit:hover
+{
+	height: 55px;
+	margin:0 0 5px 5px;
+	box-shadow: rgb(245, 151, 142) 0px 1px 0px 0px inset;
+	background: linear-gradient(rgb(169, 133, 94) 5%, rgb(99, 75, 48) 100%) rgb(125, 93, 59);
+    border-radius: 6px;
+    border: 1px solid rgb(84, 56, 30);
+    display: inline-block;
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    font-family: verdana;
+    font-size: 15px;
+    font-weight: bold;
+    text-decoration: none;
+    text-shadow: rgb(129, 14, 5) 0px 1px 0px;
+}
+
 #simulation_inputs{
 	width:90%;
 }
@@ -253,7 +272,12 @@ footer p{
 #directions {
     width: 100%;
 }
-
+#allCars
+{
+	height: 200px;
+	width:100%;
+	overflow-y: scroll;
+}
 /*--------Monitoring------*/
 
 .country{
@@ -333,4 +357,6 @@ footer p{
 		max-width: 100%;
     }
 }
+
+
 
