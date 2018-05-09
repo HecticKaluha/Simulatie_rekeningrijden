@@ -48,10 +48,9 @@ function generateInitialCars()
 	var endpoint = cities[Math.floor(Math.random() * cities.length)];
 	if(startpoint == endpoint)
 	{
-		generateInitialCars()
+		generateInitialCars();
 	}
 	else{
-		console.log(startpoint + " + " + endpoint );
 		calcRoute(startpoint, endpoint);
 	}
 }
@@ -100,6 +99,7 @@ function calcRoute(startpoint, endpoint) {
 		if(status == google.maps.DirectionsStatus.ZERO_RESULTS)
 		{
 			console.log("ZERO_RESULTS");
+			generateInitialCars();
 		}
     });
 	
