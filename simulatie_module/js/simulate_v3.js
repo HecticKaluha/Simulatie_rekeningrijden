@@ -17,12 +17,31 @@ var cities = ["Vejle",
 "Aalborg",
 "Århus",
 "KÃ¸benhavn",
-]
+];
+
+var carIds = [];
 
 
 window.onload = init;
 
 function init() {
+
+    $.ajax({
+        type: "GET",
+        //the url where you want to sent the userName and password to
+        url: "http://localhost:8080/simulatiemodule/rest/simulatie/car",
+        dataType: 'json',
+        contentType: 'application/json',
+        async: true,
+        //json object to sent to the authentication url
+        success: function (data, status) {
+            console.log(data);
+            data.forEach(function(element) {
+                carIds.push(element.ID);
+            });
+        }
+    });
+
     var myOptions = {
         zoom: 7,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
@@ -121,7 +140,7 @@ function createPolyline(directionResult) {
 		  //100 / (totaal aantal punten / punt waar je bent )
 		  offset: '0%'
 			}],
-		carId: Math.floor((Math.random() * 100000)+1),
+		carId: carIds[Math.floor((Math.random() * carIds.length))], // Math.floor((Math.random() * 100000)+1), // TODO get list of cars from the server
 		stepId: 0,
 		date: d.getDate() 
   });
@@ -165,9 +184,11 @@ function newAnimate(route, line)
 			stepCoordinates.stepLon = value.lng().toFixed(6);
 			stepCoordinates.id = line.carId;
 			stepCoordinates.stepId = line.stepId;
-			stepCoordinates.date = line.date;
+			stepCoordinates.date = new Date();
 
             console.log('creating post request');
+
+            console.log(line);
 
             $.ajax({
                 type: "POST",
