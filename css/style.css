@@ -168,24 +168,18 @@ header{
 	color: #fcfcfc;
 	text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
 }
-header p a{
-	color: #fcfcfc;
-	text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
-	text-decoration:none;
-}
+
 header img{
 	height:150px;
 	width:150px;
-	margin: 5px 0 0 5px;
+	margin: 0 0 0px 15px;
 }
 header h1{
-	margin-left: 15px;
 	vertical-align: middle;
 	font-size: 65px;
+	margin-right: 35px;
 }
-header p{
-	margin-right: 15px;
-}
+
 footer{
 	width: 75vw;
 	margin: 0 auto;
