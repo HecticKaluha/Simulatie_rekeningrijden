@@ -172,6 +172,8 @@ function newAnimate(route, line)
 
             console.log('creating post request');
 
+            console.log('dikke' + line);
+
             $.ajax({
                 type: "POST",
                 //the url where you want to sent the userName and password to
