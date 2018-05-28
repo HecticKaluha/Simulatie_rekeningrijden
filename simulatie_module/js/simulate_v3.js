@@ -144,6 +144,15 @@ function createPolyline(directionResult) {
 		stepId: 0,
 		date: d.getDate() 
   });
+
+  // if (line.carId === undefined || line.carId === 0)
+  // {
+  //     for( var i = 0; i < 10 ; i++) {
+  //         console.log(carIds[Math.floor((Math.random() * carIds.length))]);
+  //     }
+  // }
+
+  console.log('car id = ' + line.carId);
   line.setVisible(true);
   line.setMap(map);
   return line;
@@ -183,6 +192,7 @@ function newAnimate(route, line)
 			stepCoordinates.stepLat = value.lat().toFixed(6);
 			stepCoordinates.stepLon = value.lng().toFixed(6);
 			stepCoordinates.id = line.carId;
+			stepCoordinates.carId = line.carId;
 			stepCoordinates.stepId = line.stepId;
 			stepCoordinates.date = new Date();
 
