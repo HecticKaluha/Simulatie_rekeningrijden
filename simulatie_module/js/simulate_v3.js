@@ -21,6 +21,8 @@ var cities = ["Vejle",
 
 var carIds = [];
 
+var usingCarId = [];
+
 
 window.onload = init;
 
@@ -32,7 +34,7 @@ function init() {
         url: "http://localhost:8080/simulatiemodule/rest/simulatie/car",
         dataType: 'json',
         contentType: 'application/json',
-        async: true,
+        async: false,
         //json object to sent to the authentication url
         success: function (data, status) {
             console.log(data);
@@ -51,6 +53,9 @@ function init() {
     //directionsDisplay.setMap(map);
     //directionsDisplay.setPanel(document.getElementById("directions"));
     document.getElementById("simulation_submit").onclick = function() { calcRoute( document.getElementById("startpoint").value, document.getElementById("endpoint").value); };
+
+    amountOfCars = carIds.length > 5 ? 5 : carIds.length;
+
 	for(i = 0; i < amountOfCars; i++)
 	{
 		generateInitialCars();
@@ -124,7 +129,23 @@ function calcRoute(startpoint, endpoint) {
 	
 };
 
+
+
 function createPolyline(directionResult) {
+
+	var found = -1;
+
+	while (found !== undefined) {
+        var carid = carIds[Math.floor((Math.random() * carIds.length))];
+
+        found = usingCarId.find(function (element) {
+            return element == carid;
+        });
+    }
+
+    usingCarId.push(carid);
+
+
   var line = new google.maps.Polyline({
 		path: directionResult.routes[0].overview_path,
 		strokeColor: 'rgba(53, 130, 255, 1)',
@@ -140,18 +161,10 @@ function createPolyline(directionResult) {
 		  //100 / (totaal aantal punten / punt waar je bent )
 		  offset: '0%'
 			}],
-		carId: carIds[Math.floor((Math.random() * carIds.length))], // Math.floor((Math.random() * 100000)+1), // TODO get list of cars from the server
+		carId: carid, // Math.floor((Math.random() * 100000)+1), // TODO get list of cars from the server
 		stepId: 0,
 		date: d.getDate() 
   });
-
-  // if (line.carId === undefined || line.carId === 0)
-  // {
-  //     for( var i = 0; i < 10 ; i++) {
-  //         console.log(carIds[Math.floor((Math.random() * carIds.length))]);
-  //     }
-  // }
-
   console.log('car id = ' + line.carId);
   line.setVisible(true);
   line.setMap(map);
@@ -219,6 +232,12 @@ function newAnimate(route, line)
 		}
 		else{
 			console.log("done");
+
+            var index = usingCarId.indexOf(line.carId);
+            if (index > -1) {
+                usingCarId.splice(index, 1);
+            }
+
 			clearInterval(intervalForRoute);
 		}
 			
